@@ -1,4 +1,4 @@
-# CopyChromeTabs
+# Copy Chrome Tabs Easily
 CopyChromeTabs - Copy your open chrome tabs easily at one
 
 How to use after downloading!

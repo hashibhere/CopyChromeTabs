@@ -1,6 +1,9 @@
 document.addEventListener('DOMContentLoaded', function () {
   const tabsList = document.getElementById('tabs-list');
   const copyButton = document.getElementById('copy-button');
+  const selectAllButton = document.getElementById('select-all-button');
+
+  let allCheckboxes = [];
 
   // Fetch all open tabs and display them
   chrome.tabs.query({}, function (tabs) {
@@ -20,6 +23,8 @@ document.addEventListener('DOMContentLoaded', function () {
       tabItem.appendChild(checkbox);
       tabItem.appendChild(label);
       tabsList.appendChild(tabItem);
+
+      allCheckboxes.push(checkbox);
     });
   });
 
@@ -42,5 +47,16 @@ document.addEventListener('DOMContentLoaded', function () {
     } else {
       alert('No tabs selected!');
     }
+  });
+
+  // Select or deselect all checkboxes
+  selectAllButton.addEventListener('click', function () {
+    const isAnyUnchecked = allCheckboxes.some(checkbox => !checkbox.checked);
+
+    allCheckboxes.forEach(checkbox => {
+      checkbox.checked = isAnyUnchecked;
+    });
+
+    selectAllButton.textContent = isAnyUnchecked ? 'Deselect All' : 'Select All';
   });
 });

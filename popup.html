@@ -24,12 +24,19 @@
     button:hover {
       background-color: #45a049;
     }
+    #button-container {
+      display: flex;
+      justify-content: space-between;
+    }
   </style>
 </head>
 <body>
   <h3>Select Tabs to Copy</h3>
   <div id="tabs-list"></div>
-  <button id="copy-button">Copy Selected Links</button>
+  <div id="button-container">
+    <button id="select-all-button">Select All</button>
+    <button id="copy-button">Copy Selected Links</button>
+  </div>
   <script src="popup.js"></script>
 </body>
 </html>
